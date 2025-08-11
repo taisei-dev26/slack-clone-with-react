@@ -18,4 +18,10 @@ export const authRepository = {
     const { user, token } = result.data;
     return { user: new User(user), token };
   },
+  // ログイン中のユーザーを取得
+  async getCurrentUser(): Promise<User | null> {
+    const result = await api.get("/auth/me");
+    if (result.data == null) return null;
+    return new User(result.data);
+  },
 };

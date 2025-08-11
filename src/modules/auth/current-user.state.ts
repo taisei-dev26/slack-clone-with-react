@@ -1,7 +1,7 @@
 import { atom, useAtom } from "jotai";
 import type { User } from "../users/user.entity";
 
-const currentUserAtom = atom<User>();
+const currentUserAtom = atom<User | null>();
 
 export const useCurrentUserStore = () => {
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
